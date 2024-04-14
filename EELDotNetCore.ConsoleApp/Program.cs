@@ -6,9 +6,10 @@ SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
 stringBuilder.DataSource = "EIEILIN";
 stringBuilder.InitialCatalog = "DotNetTrainingBath4";
 stringBuilder.UserID = "sa";
-stringBuilder.Password = "sa@123";
+stringBuilder.Password = "sasa@123";
 SqlConnection connection = new SqlConnection(stringBuilder.ConnectionString);
 
+connection.Open();
 Console.WriteLine("Connection Open.");
 
 string query = "select * from Tbl_Blog";
@@ -35,7 +36,8 @@ foreach (DataRow dr in dt.Rows)
 
 }
 
-Console.ReadKey();
+Console.ReadLine();
+
 
 
 
