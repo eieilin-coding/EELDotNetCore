@@ -31,6 +31,7 @@ foreach (DataRow dr in dt.Rows)
     Console.WriteLine("Blog Title=>" + dr["BlogTitle"]);
     Console.WriteLine("Blog Author=>" + dr["BlogAuthor"]);
     Console.WriteLine("Blog Content=>" + dr["BlogContent"]);
+    Console.WriteLine("------------------------------------");
 
 }
 
