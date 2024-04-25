@@ -36,15 +36,18 @@ using System.Data.SqlClient;Console.WriteLine("Hello, World!");
 // Console.WriteLine("------------------------------------");
 
 //}
-AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
+//AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
 
 //adoDotNetExample.Create("title", "author", "content");
 //adoDotNetExample.Update(13, "TestTitle", "TestAuthor", "TestContent");
 //adoDotNetExample.Read();
 //adoDotNetExample.Update(13, "Test Title", "Test Author", "Test Content");
 //adoDotNetExample.Delete(11);
-adoDotNetExample.Edit(11);
-adoDotNetExample.Edit(1);
+//adoDotNetExample.Edit(11);
+//adoDotNetExample.Edit(1);
+
+DapperExample dapperExample = new DapperExample();
+dapperExample.Run();
 
 Console.ReadLine();
 
