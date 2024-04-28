@@ -1,4 +1,5 @@
 ﻿using EELDotNetCore.RestApi.Db;
+using EELDotNetCore.RestApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,16 +38,32 @@ namespace EELDotNetCore.RestApi.Controllers
 
         [HttpPost]
 
-        public IActionResult Create()
+        public IActionResult Create(BlogModel blog)
         {
-            return Ok("Create");
+            _context.Blogs.Add(blog);
+            var result = _context.SaveChanges();
+
+            string message = result > 0 ? "Saving Successful." : "Saving Fail.";
+            return Ok(message);
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
 
-        public IActionResult Update()
+        public IActionResult Update(int id, BlogModel blog)
         {
-            return Ok("Update");
+            var item = _context.Blogs.SingleOrDefault(x => x.BlogID == id);
+            if (item is null)
+            {
+                return NotFound("No data Found.");
+            }
+
+            item.BlogTitle = blog.BlogTitle;
+            item.BlogAuthor = blog.BlogAuthor;
+            item.BlogContent = blog.BlogContent;
+            var result = _context.SaveChanges();
+
+            string message = result > 0 ? "Updating Successful." : "Updating Fail.";
+            return Ok(message);
         }
 
         [HttpPatch]
