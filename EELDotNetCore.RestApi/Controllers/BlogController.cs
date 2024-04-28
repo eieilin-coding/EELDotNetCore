@@ -24,6 +24,17 @@ namespace EELDotNetCore.RestApi.Controllers
             return Ok(lst);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult Edit(int id)
+        {
+            var item = _context.Blogs.SingleOrDefault(x=> x.BlogID == id);
+            if (item is null)
+            {
+                return NotFound("No data Found.");
+            }
+            return Ok(item);
+        }
+
         [HttpPost]
 
         public IActionResult Create()
