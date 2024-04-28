@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using EELDotNetCore.RestApi.Db;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EELDotNetCore.RestApi.Controllers
@@ -9,11 +10,18 @@ namespace EELDotNetCore.RestApi.Controllers
     [ApiController]
     public class BlogController : ControllerBase
     {
+        private readonly AppDbContext _context;
+
+        public BlogController()
+        {
+            _context = new AppDbContext();
+        }
         [HttpGet]
 
         public IActionResult Read()
         {
-            return Ok("Read");
+            var lst = _context.Blogs.ToList();
+            return Ok(lst);
         }
 
         [HttpPost]
