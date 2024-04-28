@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection.Metadata;
 
-namespace EELDotNetCore.ConsoleApp
+namespace EELDotNetCore.ConsoleApp.AdoDotNetExamples
 {
     internal class AdoDotNetExample
     {
@@ -22,7 +22,7 @@ namespace EELDotNetCore.ConsoleApp
 
         public void Read()
         {
-            
+
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
 
             connection.Open();
@@ -97,7 +97,7 @@ namespace EELDotNetCore.ConsoleApp
             Console.WriteLine(message);
         }
 
-        public void Delete(int id) 
+        public void Delete(int id)
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
@@ -114,7 +114,7 @@ namespace EELDotNetCore.ConsoleApp
             Console.WriteLine(message);
         }
 
-        public void Edit(int id) 
+        public void Edit(int id)
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
 
@@ -130,23 +130,23 @@ namespace EELDotNetCore.ConsoleApp
 
 
             connection.Close();
-           
+
             if (dt.Rows.Count == 0)
             {
                 Console.WriteLine("No Data found.");
                 return;
             }
 
-            DataRow dr= dt.Rows[0];
-          
-                Console.WriteLine("Blog Id=>" + dr["BlogID"]);
-                Console.WriteLine("Blog Title=>" + dr["BlogTitle"]);
-                Console.WriteLine("Blog Author=>" + dr["BlogAuthor"]);
-                Console.WriteLine("Blog Content=>" + dr["BlogContent"]);
-                Console.WriteLine("------------------------------------");
+            DataRow dr = dt.Rows[0];
 
-            }
-
+            Console.WriteLine("Blog Id=>" + dr["BlogID"]);
+            Console.WriteLine("Blog Title=>" + dr["BlogTitle"]);
+            Console.WriteLine("Blog Author=>" + dr["BlogAuthor"]);
+            Console.WriteLine("Blog Content=>" + dr["BlogContent"]);
+            Console.WriteLine("------------------------------------");
 
         }
+
+
+    }
 }

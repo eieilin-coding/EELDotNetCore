@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EELDotNetCore.ConsoleApp.Dtos;
 
-namespace EELDotNetCore.ConsoleApp
+namespace EELDotNetCore.ConsoleApp.EFCoreExamples
 {
     internal class EFCoreExample
     {

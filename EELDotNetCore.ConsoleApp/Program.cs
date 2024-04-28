@@ -1,7 +1,7 @@
-﻿
-using EELDotNetCore.ConsoleApp;
+﻿using EELDotNetCore.ConsoleApp.EFCoreExamples;
 using System.Data;
-using System.Data.SqlClient;Console.WriteLine("Hello, World!");
+using System.Data.SqlClient;
+Console.WriteLine("Hello, World!");
 
 //SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
 //stringBuilder.DataSource = "Eieilin";
