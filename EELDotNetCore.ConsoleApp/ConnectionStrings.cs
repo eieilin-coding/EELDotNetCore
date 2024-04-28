@@ -14,7 +14,8 @@ namespace EELDotNetCore.ConsoleApp
             DataSource = "Eieilin",
             InitialCatalog = "DotNetTrainingBatch4",
             UserID = "sa",
-            Password = "sasa@123"
+            Password = "sasa@123",
+            TrustServerCertificate = true,
         };
 
     }
