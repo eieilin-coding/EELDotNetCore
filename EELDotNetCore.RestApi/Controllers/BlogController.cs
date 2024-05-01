@@ -28,7 +28,7 @@ namespace EELDotNetCore.RestApi.Controllers
         [HttpGet("{id}")]
         public IActionResult Edit(int id)
         {
-            var item = _context.Blogs.SingleOrDefault(x=> x.BlogID == id);
+            var item = _context.Blogs.FirstOrDefault(x=> x.BlogID == id);
             if (item is null)
             {
                 return NotFound("No data Found.");
@@ -51,7 +51,7 @@ namespace EELDotNetCore.RestApi.Controllers
 
         public IActionResult Update(int id, BlogModel blog)
         {
-            var item = _context.Blogs.SingleOrDefault(x => x.BlogID == id);
+            var item = _context.Blogs.FirstOrDefault(x => x.BlogID == id);
             if (item is null)
             {
                 return NotFound("No data Found.");
@@ -66,18 +66,51 @@ namespace EELDotNetCore.RestApi.Controllers
             return Ok(message);
         }
 
-        [HttpPatch]
+        [HttpPatch("{id}")]
 
-        public IActionResult Patch()
+        public IActionResult Patch(int id, BlogModel blog)
         {
-            return Ok("Patch");
+            var item = _context.Blogs.FirstOrDefault(x => x.BlogID == id);
+            if (item is null)
+            {
+                return NotFound("No data Found.");
+            }
+
+            if (!string.IsNullOrEmpty(item.BlogTitle))
+            {
+                item.BlogTitle = blog.BlogTitle;
+            }
+
+            if (!string.IsNullOrEmpty(item.BlogAuthor))
+            {
+                item.BlogAuthor = blog.BlogAuthor;
+            }
+
+            if(!string.IsNullOrEmpty(item.BlogContent))
+            {
+                item.BlogContent = blog.BlogContent;
+            }
+            var result = _context.SaveChanges();
+
+            string message = result > 0 ? "Updating Successful." : "Updating Fail.";
+            return Ok(message);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
 
-        public IActionResult Delete()
+        public IActionResult Delete(int id)
         {
-            return Ok("Delete");
+            var item = _context.Blogs.FirstOrDefault(x => x.BlogID == id);
+            if (item is null)
+            {
+                return NotFound("No data Found.");
+            }
+
+            _context.Blogs.Remove(item);
+            var result = _context.SaveChanges();
+
+            string message = result > 0 ? "Deleting Successful." : "Deleting Fail.";
+            return Ok(message);
         }
 
     }
