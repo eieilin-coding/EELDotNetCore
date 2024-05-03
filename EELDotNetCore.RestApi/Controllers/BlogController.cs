@@ -76,17 +76,17 @@ namespace EELDotNetCore.RestApi.Controllers
                 return NotFound("No data Found.");
             }
 
-            if (!string.IsNullOrEmpty(item.BlogTitle))
+            if (!string.IsNullOrEmpty(blog.BlogTitle))
             {
                 item.BlogTitle = blog.BlogTitle;
             }
 
-            if (!string.IsNullOrEmpty(item.BlogAuthor))
+            if (!string.IsNullOrEmpty(blog.BlogAuthor))
             {
                 item.BlogAuthor = blog.BlogAuthor;
             }
 
-            if(!string.IsNullOrEmpty(item.BlogContent))
+            if(!string.IsNullOrEmpty(blog.BlogContent))
             {
                 item.BlogContent = blog.BlogContent;
             }
