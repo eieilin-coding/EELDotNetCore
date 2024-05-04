@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
 using Dapper;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace EELDotNetCore.RestApi.Controllers
 {
@@ -40,9 +41,23 @@ namespace EELDotNetCore.RestApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(BlogModel model)
+        public IActionResult CreateBlog(BlogModel blog)
         {
-            return Ok();
+            string query = @"INSERT INTO [dbo].[Tbl_Blog]
+           ([BlogTitle]
+           ,[BlogAuthor]
+           ,[BlogContent])
+     VALUES
+           (@BlogTitle
+		   ,@BlogAuthor
+		   ,@BlogContent
+		   )";
+
+            using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+            int result = db.Execute(query,blog);
+
+            string message = result > 0 ? "Saving successful" : "Saving Fail";
+            return Ok(message);
         }
 
         [HttpPut("{id}")]
@@ -55,6 +70,7 @@ namespace EELDotNetCore.RestApi.Controllers
                 return NotFound("No data found.");
 
             }
+            blog.BlogID = id;
             string query = @"UPDATE [dbo].[Tbl_Blog]
         SET [BlogTitle] = @BlogTitle
             ,[BlogAuthor] = @BlogAuthor
@@ -63,7 +79,7 @@ namespace EELDotNetCore.RestApi.Controllers
 		   ";
 
             using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-            int result = db.Execute(query, item);
+            int result = db.Execute(query, blog);
 
             string message = result > 0 ? "Updating successful" : "Updating Fail";
 
@@ -74,7 +90,46 @@ namespace EELDotNetCore.RestApi.Controllers
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, BlogModel blog)
         {
-            return Ok();
+            var item = FindById(id);
+
+            if (item is null)
+            {
+                return NotFound("No data found.");
+
+            }
+
+            string conditions = string.Empty;
+            if(!string.IsNullOrEmpty(blog.BlogTitle))
+            {
+                conditions += "[BlogTitle] = @BlogTitle, ";
+            }
+            if (!string.IsNullOrEmpty(blog.BlogAuthor))
+            {
+                conditions += "[BlogAuthor] = @BlogAuthor, ";
+            }
+            if (!string.IsNullOrEmpty(blog.BlogContent))
+            {
+                conditions += "[BlogContent] = @BlogContent, ";
+            }
+
+            if(conditions.Length == 0)
+            {
+                return NotFound("No data to update");
+            }
+            conditions = conditions.Substring(0, conditions.Length - 2); 
+            //(-2 for space and comma)
+            blog.BlogID = id;
+
+            string query = $@"UPDATE [dbo].[Tbl_Blog]
+        SET {conditions}
+        WHERE BlogID = @BlogID
+		   ";
+            using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+            int result = db.Execute(query, blog);
+
+            string message = result > 0 ? "Updating successful" : "Updating Fail";
+
+            return Ok(message);
         }
 
         [HttpDelete("{id}")]
