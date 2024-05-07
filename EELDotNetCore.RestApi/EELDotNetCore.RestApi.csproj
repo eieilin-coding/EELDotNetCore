@@ -14,5 +14,9 @@
 	  <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
 	  <PackageReference Include="Dapper" Version="2.1.35" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EELDotNetCore.Shared\EELDotNetCore.Shared.csproj" />
+  </ItemGroup>
 	
 </Project>
