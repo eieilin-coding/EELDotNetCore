@@ -145,6 +145,51 @@ namespace EELDotNetCore.RestApi.Controllers
             return Ok(message);
         }
 
+        [HttpPatch("{id}")]
+        public IActionResult UpdatePatch(int id, BlogModel blog)
+        {
+            SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+            connection.Open();
+            List<string> list = new List<string>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+
+            if (!string.IsNullOrEmpty(blog.BlogTitle))
+            {
+                list.Add("[BlogTitle] = @BlogTitle");
+                cmd.Parameters.AddWithValue("@BlogTitle", blog.BlogTitle);
+            }
+
+            if (!string.IsNullOrEmpty(blog.BlogAuthor))
+            {
+                list.Add("[BlogAuthor] = @BlogAuthor");
+                cmd.Parameters.AddWithValue("@BlogAuthor", blog.BlogAuthor);
+            }
+
+            if (!string.IsNullOrEmpty(blog.BlogContent))
+            {
+                list.Add("[BlogContent] = @BlogContent");
+                cmd.Parameters.AddWithValue("@BlogContent", blog.BlogContent);
+            }
+
+            if (!list.Any())
+            {
+                return NotFound("No valid fields provided to update.");
+            }
+
+            string item = string.Join(", ", list);
+            string query = $@"UPDATE [dbo].[Tbl_Blog]
+                          SET {item}
+                          WHERE BlogId = @BlogId";
+            cmd.CommandText = query;
+            cmd.Parameters.AddWithValue("@BlogId", id);
+
+            int result = cmd.ExecuteNonQuery();
+            string message = result > 0 ? "Update Successfully!" : "No changes were made.";
+            return Ok(message);
+        }
+
+
         [HttpDelete("{id}")]
         public IActionResult DeleteBlog(int id)
         {

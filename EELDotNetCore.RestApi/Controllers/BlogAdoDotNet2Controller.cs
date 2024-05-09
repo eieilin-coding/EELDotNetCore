@@ -68,9 +68,9 @@ namespace EELDotNetCore.RestApi.Controllers
 		   )";
 
             int result = _adoDotNetService.Execute(query,
-                new AdoDotNetParameter("@BlogTitle", blog.BlogTitle),
-                new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor),
-                new AdoDotNetParameter("@BlogContent", blog.BlogContent)
+                new AdoDotNetParameter("@BlogTitle", blog.BlogTitle!),
+                new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor!),
+                new AdoDotNetParameter("@BlogContent", blog.BlogContent!)
                 );
 
             string message = result > 0 ? "Saving successful" : "Saving Fail";
@@ -90,21 +90,58 @@ namespace EELDotNetCore.RestApi.Controllers
         WHERE BlogID = @BlogID
 		   ";
 
-            SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-            connection.Open();
-            
-            SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@BlogID", id);
-            cmd.Parameters.AddWithValue("@BlogTitle", blog.BlogTitle);
-            cmd.Parameters.AddWithValue("@BlogAuthor", blog.BlogAuthor);
-            cmd.Parameters.AddWithValue("@BlogContent", blog.BlogContent);
-            int result = cmd.ExecuteNonQuery();
-
-            connection.Close();
+            int result = _adoDotNetService.Execute(query,
+                   new AdoDotNetParameter("@BlogID", id),
+                   new AdoDotNetParameter("@BlogTitle", blog.BlogTitle!),
+                   new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor!),
+                   new AdoDotNetParameter("@BlogContent", blog.BlogContent!)
+                   );
 
             string message = result > 0 ? "Update successful" : "Update Fail";
             return Ok(message);
         }
+        [HttpPatch("{id}")]
+        public IActionResult UpdatePatch(int id, BlogModel blog)
+        {
+            List<string> list = new List<string>();
+            List<AdoDotNetParameter> parameters = new List<AdoDotNetParameter>
+            {
+                new AdoDotNetParameter("@BlogId", id)
+            };
+
+            if (blog.BlogTitle != null)
+            {
+                list.Add("[BlogTitle] = @BlogTitle");
+                parameters.Add(new AdoDotNetParameter("@BlogTitle", blog.BlogTitle));
+            }
+            if (blog.BlogAuthor != null)
+            {
+                list.Add("[BlogAuthor] = @BlogAuthor");
+                parameters.Add(new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor));
+            }
+            if (blog.BlogContent != null)
+            {
+                list.Add("[BlogContent] = @BlogContent");
+                parameters.Add(new AdoDotNetParameter("@BlogContent", blog.BlogContent));
+            }
+
+            if (!list.Any())
+            {
+                return BadRequest("No data to update.");
+            }
+
+            string item = string.Join(", ", list);
+            string query = $@"UPDATE [dbo].[Tbl_Blog]
+                      SET {item}
+                      WHERE BlogId = @BlogId";
+
+            int result = _adoDotNetService.Execute(query, parameters.ToArray());
+
+            string message = result > 0 ? "Updated Successfully!" : "Update failed!";
+            return Ok(message);
+        }
+
+
 
         [HttpDelete("{id}")]
         public IActionResult DeleteBlog(int id)
@@ -112,14 +149,7 @@ namespace EELDotNetCore.RestApi.Controllers
             string query = @"DELETE FROM [dbo].[Tbl_Blog]
       WHERE BlogID = @BlogID
 		   ";
-            SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-            connection.Open();
-           
-            SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@BlogID", id);
-            int result = cmd.ExecuteNonQuery();
-
-            connection.Close();
+           int result = _adoDotNetService.Execute(query, new AdoDotNetParameter("@BlogID", id));
 
             string message = result > 0 ? "Deleting successful" : "Deleting Fail";
             return Ok(message); 
