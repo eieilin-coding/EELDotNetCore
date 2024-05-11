@@ -13,6 +13,7 @@ namespace EELDotNetCore.RestApiWithNLayer.Features.Blog
         {
             _bl_Blog = new BL_Blog();
         }
+        [HttpGet]
         public IActionResult Read()
         {
             var lst = _bl_Blog.GetBlogs();
