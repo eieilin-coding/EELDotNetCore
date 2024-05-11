@@ -21,6 +21,19 @@ namespace EELDotNetCore.RestApiWithNLayer.Features.PickAPile
             return Ok(model.Questions);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Answers()
+        {
+            var model = await GetDataAsync();
+            return Ok(model.Answers);
+        }
+        [HttpGet("{QuestionId}/{AnswerId}")]
+        public async Task<IActionResult> answerPile(int QuestionId, int AnswerId)
+        {
+            var model = await GetDataAsync();
+            return Ok(model.Answers.FirstOrDefault(x => x.QuestionId == QuestionId && x.AnswerId == AnswerId));
+        }
+
         public class MainDto
         {
             public Question[] Questions { get; set; }
