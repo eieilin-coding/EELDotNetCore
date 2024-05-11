@@ -21,7 +21,7 @@ namespace EELDotNetCore.RestApiWithNLayer.Features.PickAPile
             return Ok(model.Questions);
         }
 
-        [HttpGet]
+        [HttpGet("Answers")]
         public async Task<IActionResult> Answers()
         {
             var model = await GetDataAsync();
