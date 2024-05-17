@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EELDotNetCore.RestApiWithNL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EELDotNetCore.ConsoleAppHttpClient", "EELDotNetCore.ConsoleAppHttpClient\EELDotNetCore.ConsoleAppHttpClient.csproj", "{2900B6FE-EC21-49C7-9CEB-05A99C3AED2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EELDotNetCore.ConsoleAppHttpClientExample", "EELDotNetCore.ConsoleAppHttpClientExample\EELDotNetCore.ConsoleAppHttpClientExample.csproj", "{EE3650FA-44E9-4C17-BA60-BC52ECB2474E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EELDotNetCore.ConsoleAppHttpClientExample", "EELDotNetCore.ConsoleAppHttpClientExample\EELDotNetCore.ConsoleAppHttpClientExample.csproj", "{EE3650FA-44E9-4C17-BA60-BC52ECB2474E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EELDotNetCore.ConsoleAppRestClientExamples", "EELDotNetCore.ConsoleAppRestClientExamples\EELDotNetCore.ConsoleAppRestClientExamples.csproj", "{007CBD22-52FC-4F96-8682-A0529B8A99C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{EE3650FA-44E9-4C17-BA60-BC52ECB2474E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE3650FA-44E9-4C17-BA60-BC52ECB2474E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE3650FA-44E9-4C17-BA60-BC52ECB2474E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{007CBD22-52FC-4F96-8682-A0529B8A99C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{007CBD22-52FC-4F96-8682-A0529B8A99C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{007CBD22-52FC-4F96-8682-A0529B8A99C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{007CBD22-52FC-4F96-8682-A0529B8A99C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
