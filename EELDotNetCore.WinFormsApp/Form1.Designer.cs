@@ -40,7 +40,9 @@
             // 
             // btnCancel_Click
             // 
-            btnCancel_Click.BackColor = SystemColors.GrayText;
+            btnCancel_Click.BackColor = Color.FromArgb(121, 85, 72);
+            btnCancel_Click.FlatAppearance.BorderSize = 0;
+            btnCancel_Click.FlatStyle = FlatStyle.Flat;
             btnCancel_Click.ForeColor = SystemColors.ButtonHighlight;
             btnCancel_Click.Location = new Point(66, 590);
             btnCancel_Click.Name = "btnCancel_Click";
@@ -52,7 +54,9 @@
             // 
             // btnSave_Click
             // 
-            btnSave_Click.BackColor = SystemColors.HotTrack;
+            btnSave_Click.BackColor = Color.FromArgb(104, 159, 56);
+            btnSave_Click.FlatAppearance.BorderSize = 0;
+            btnSave_Click.FlatStyle = FlatStyle.Flat;
             btnSave_Click.ForeColor = SystemColors.ButtonHighlight;
             btnSave_Click.Location = new Point(472, 590);
             btnSave_Click.Name = "btnSave_Click";
