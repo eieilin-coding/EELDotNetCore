@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnCancel_Click = new Button();
-            btnSave_Click = new Button();
+            btnCancel = new Button();
+            btnSave = new Button();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -38,33 +38,33 @@
             txtContent = new TextBox();
             SuspendLayout();
             // 
-            // btnCancel_Click
+            // btnCancel
             // 
-            btnCancel_Click.BackColor = Color.FromArgb(121, 85, 72);
-            btnCancel_Click.FlatAppearance.BorderSize = 0;
-            btnCancel_Click.FlatStyle = FlatStyle.Flat;
-            btnCancel_Click.ForeColor = SystemColors.ButtonHighlight;
-            btnCancel_Click.Location = new Point(66, 590);
-            btnCancel_Click.Name = "btnCancel_Click";
-            btnCancel_Click.Size = new Size(268, 113);
-            btnCancel_Click.TabIndex = 1;
-            btnCancel_Click.Text = "Cancel";
-            btnCancel_Click.UseVisualStyleBackColor = false;
-            btnCancel_Click.Click += btnCancel_Click_Click;
+            btnCancel.BackColor = Color.FromArgb(121, 85, 72);
+            btnCancel.FlatAppearance.BorderSize = 0;
+            btnCancel.FlatStyle = FlatStyle.Flat;
+            btnCancel.ForeColor = SystemColors.ButtonHighlight;
+            btnCancel.Location = new Point(66, 590);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(268, 113);
+            btnCancel.TabIndex = 1;
+            btnCancel.Text = "&Cancel";
+            btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
-            // btnSave_Click
+            // btnSave
             // 
-            btnSave_Click.BackColor = Color.FromArgb(104, 159, 56);
-            btnSave_Click.FlatAppearance.BorderSize = 0;
-            btnSave_Click.FlatStyle = FlatStyle.Flat;
-            btnSave_Click.ForeColor = SystemColors.ButtonHighlight;
-            btnSave_Click.Location = new Point(472, 590);
-            btnSave_Click.Name = "btnSave_Click";
-            btnSave_Click.Size = new Size(259, 113);
-            btnSave_Click.TabIndex = 2;
-            btnSave_Click.Text = "Save";
-            btnSave_Click.UseVisualStyleBackColor = false;
-            btnSave_Click.Click += btnSave_Click_Click;
+            btnSave.BackColor = Color.FromArgb(104, 159, 56);
+            btnSave.FlatAppearance.BorderSize = 0;
+            btnSave.FlatStyle = FlatStyle.Flat;
+            btnSave.ForeColor = SystemColors.ButtonHighlight;
+            btnSave.Location = new Point(472, 590);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(259, 113);
+            btnSave.TabIndex = 2;
+            btnSave.Text = "&Save";
+            btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // label1
             // 
@@ -126,8 +126,8 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(btnSave_Click);
-            Controls.Add(btnCancel_Click);
+            Controls.Add(btnSave);
+            Controls.Add(btnCancel);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmBlog";
@@ -137,8 +137,8 @@
 
         #endregion
 
-        private Button btnCancel_Click;
-        private Button btnSave_Click;
+        private Button btnCancel;
+        private Button btnSave;
         private Label label1;
         private Label label2;
         private Label label3;
