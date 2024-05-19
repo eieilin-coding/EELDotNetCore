@@ -53,8 +53,7 @@ public class MyanmarProverbsController : ControllerBase
     public async Task<IActionResult> Get(int titleId, int proverbId)
     {
         var model = await GetDataFromApi();
-        var item = model.Tbl_MMProverbs.FirstOrDefault(x => x.TitleId = titleId && proverbId = proverbId);
-       
+        var item = model.Tbl_MMProverbs.FirstOrDefault(x => x.TitleId == titleId && x.ProverbId == proverbId);
         return Ok(item);
     }
 }
