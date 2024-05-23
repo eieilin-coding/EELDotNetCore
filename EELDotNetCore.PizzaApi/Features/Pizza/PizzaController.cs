@@ -26,5 +26,10 @@ namespace EELDotNetCore.PizzaApi.Features.Pizza
             var lst = await _appDbContext.PizzaExtras.ToListAsync();
             return Ok(lst);
         }
+        [HttpPost("Order")]
+        public async Task<IActionResult> OrderAsync(OrderRequest orderRequest)
+        {
+            return Ok(orderRequest);
+        }
     }
 }
