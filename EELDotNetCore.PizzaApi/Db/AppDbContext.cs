@@ -45,6 +45,23 @@ namespace EELDotNetCore.PizzaApi.Db
     public class OrderRequest
     {
         public int PizzaId { get; set; }
-        public int Extras { get; set; }
+        public int [ ] Extras { get; set; }
     }
+}
+[Table("Tbl_PizzaOrder")]
+public class PizzaOrderModel
+{
+    [Key]
+    public int PizzaOrderId { get; set; }
+    public string PizzaOrderInvoiceNo { get; set; }
+    public int PizzaId { get; set; }
+    public decimal TotalAmount { get; set; }
+}
+[Table("Tbl_PizzaOrderDetail")]
+public class PizzaOrderDetailModel
+{
+    [Key]
+    public int PizzaOrderDetailId { get; set; }
+    public string PizzaOrderInvoiceNo { get; set; }
+    public int PizzaExtraId { get; set; }
 }
