@@ -28,29 +28,18 @@ namespace EELDotNetCore.PizzaApi.Features.Pizza
             var lst = await _appDbContext.PizzaExtras.ToListAsync();
             return Ok(lst);
         }
+        [HttpGet("Order/{invoiceNo}")]
+        public async Task<IActionResult> GetOrder(string invoiceNo)
+        {
+            var item = await _appDbContext.PizzaOrders.FirstOrDefaultAsync(x => x.PizzaOrderInvoiceNo == invoiceNo);
+            var lst = await _appDbContext.PizzaOrderDetails.Where(x => x.PizzaOrderInvoiceNo == invoiceNo).ToListAsync();
+            return Ok(new
+            {
+                Order = item,
+                OrderDetail = lst
+            });
+        }
 
-        //[HttpPost("Order")]
-        //public async Task<IActionResult> OrderAsync(OrderRequest orderRequest)
-        //{
-        //    var itemPizza = await _appDbContext.Pizzas.FirstOrDefaultAsync(x => x.Id == orderRequest.PizzaId);
-        //    var total = itemPizza.Price;
-        //    if (orderRequest.Extras.Length > 0)
-        //    {
-        //        //select * from Tbl_PizzaExtras where PizzaExtraId in (1,2,3,4)
-        //        //foreach (var item in orderRequest.Extras)
-        //        //{
-        //        //}
-        //        var lstExtra = await _appDbContext.PizzaExtras.Where(x => orderRequest.Extras.Contains(x.Id)).ToListAsync();
-        //        total += lstExtra.Sum(x => x.Price);
-        //    }
-        //    PizzaOrderModel pizzaOrderModel = new PizzaOrderModel()
-        //    {
-        //        PizzaId = orderRequest.PizzaId,
-        //        PizzaOrderInvoiceNo = DateTime.Now.ToString("yyyyMMddHHmmss"),
-        //        TotalAmount = 0
-        //    };
-
-        //}
         [HttpPost("Order")]
         public async Task<IActionResult> OrderAsync(OrderRequest orderRequest)
         {
@@ -76,7 +65,21 @@ namespace EELDotNetCore.PizzaApi.Features.Pizza
                 PizzaOrderInvoiceNo = invoiceNo,
                 TotalAmount = total
             };
+            List<PizzaOrderDetailModel> PizzaExtraModels = orderRequest.Extras.Select(extraId => new PizzaOrderDetailModel
+            {
+                PizzaExtraId = extraId,
+                PizzaOrderInvoiceNo = invoiceNo,
+            }).ToList();
+            await _appDbContext.PizzaOrders.AddAsync(pizzaOrderModel);
+            await _appDbContext.PizzaOrderDetails.AddRangeAsync(PizzaExtraModels);
+            await _appDbContext.SaveChangesAsync();
 
+            OrderResponse response = new OrderResponse()
+            {
+                InvoiceNo = invoiceNo,
+                Message = "Thank you for your order! Enjoy your pizza!",
+                TotalAmount = total,
+            };
             return Ok();
         }
     }
