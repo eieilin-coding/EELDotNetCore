@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,8 +14,11 @@ namespace EELDotNetCore.ConsoleAppRefitExamples
         public async Task RunAsync()
         {
             //await ReadAsync();
-            await EditAsync(1);
-            await EditAsync(100);
+            //await EditAsync(1);
+            //await EditAsync(100);
+            await CreateAsync("title r1", "author r1", "content r1");
+            //await UpdateAsync(24, "title 1", "author 2", "content 3");
+            //await EditAsync(24);
         }
         private async Task ReadAsync()
         {
@@ -41,6 +45,45 @@ namespace EELDotNetCore.ConsoleAppRefitExamples
                 Console.WriteLine("---------------------------------");
             }
             catch(ApiException ex)
+            {
+                Console.WriteLine(ex.StatusCode.ToString());
+                Console.WriteLine(ex.Content);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        private async Task CreateAsync(string title, string author, string content)
+        {
+            BlogModel blog = new BlogModel()
+            {
+                BlogTitle = title,
+                BlogAuthor = author,
+                BlogContent = content,
+            };
+            var message = await _service.CreateBlog(blog);
+            Console.WriteLine(message);
+        }
+        private async Task UpdateAsync(int id, string title, string author, string content)
+        {
+            BlogModel blog = new BlogModel()
+            {
+                BlogTitle = title,
+                BlogAuthor = author,
+                BlogContent = content,
+            };
+            var message = await _service.UpdateBlog(id, blog);
+            Console.WriteLine(message);
+        }
+        private async Task DeleteAsync(int id)
+        {
+            try
+            {
+                var message = await _service.DeleteBlog(id);
+                Console.WriteLine(message);
+            }
+            catch (ApiException ex)
             {
                 Console.WriteLine(ex.StatusCode.ToString());
                 Console.WriteLine(ex.Content);

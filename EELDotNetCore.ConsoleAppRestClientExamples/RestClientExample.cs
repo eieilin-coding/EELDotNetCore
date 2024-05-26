@@ -18,7 +18,7 @@ namespace EELDotNetCore.ConsoleAppRestClientExamples
             await ReadAsync();
             // await EditAsync(26);
             // await EditAsync(100);
-            // await CreateAsynce("title", "author 2", "content 3");
+            // await CreateAsync("title", "author 2", "content 3");
             //await UpdateAsync(24, "title 1", "author 2", "content 3");
             //await EditAsync(24);
         }
