@@ -13,12 +13,13 @@ namespace EELDotNetCore.ConsoleAppRefitExamples
         private readonly IBlogApi _service = RestService.For<IBlogApi>("http://localhost:5179");
         public async Task RunAsync()
         {
-            //await ReadAsync();
+            await ReadAsync();
             //await EditAsync(1);
             //await EditAsync(100);
-            await CreateAsync("title r1", "author r1", "content r1");
+            //await CreateAsync("title r1", "author r1", "content r1");
             //await UpdateAsync(24, "title 1", "author 2", "content 3");
             //await EditAsync(24);
+            await DeleteAsync(29);
         }
         private async Task ReadAsync()
         {
