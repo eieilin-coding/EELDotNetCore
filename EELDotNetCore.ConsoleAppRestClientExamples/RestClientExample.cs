@@ -42,7 +42,6 @@ namespace EELDotNetCore.ConsoleAppRestClientExamples
                     Console.WriteLine($"Title => {blog.BlogTitle}");
                     Console.WriteLine($"Author => {blog.BlogAuthor}");
                     Console.WriteLine($"Content => {blog.BlogContent}");
-
                 }
             }
         }
