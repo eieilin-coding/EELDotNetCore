@@ -1,6 +1,6 @@
 ﻿namespace EELDotNetCore.WinFormsApp
 {
-    partial class Form1
+    partial class FrmBlog
     {
         /// <summary>
         ///  Required designer variable.

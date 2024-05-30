@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EELDotNetCore.WinFormsApp",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EELDotNetCore.PizzaApi", "EELDotNetCore.PizzaApi\EELDotNetCore.PizzaApi.csproj", "{6BD3A0E0-8766-487A-BFF4-57EE8026997C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EELDotNetCore.ConsoleAppRefitExamples", "EELDotNetCore.ConsoleAppRefitExamples\EELDotNetCore.ConsoleAppRefitExamples.csproj", "{E9EA47C2-BCA5-4777-82B5-386D7BE74F3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EELDotNetCore.ConsoleAppRefitExamples", "EELDotNetCore.ConsoleAppRefitExamples\EELDotNetCore.ConsoleAppRefitExamples.csproj", "{E9EA47C2-BCA5-4777-82B5-386D7BE74F3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

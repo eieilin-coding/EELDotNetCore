@@ -5,10 +5,10 @@ using System.Drawing.Text;
 
 namespace EELDotNetCore.WinFormsApp
 {
-    public partial class Form1 : Form
+    public partial class FrmBlog : Form
     {
        private readonly DapperService _dapperService; 
-        public Form1()
+        public FrmBlog()
         {
             InitializeComponent();
             _dapperService = new DapperService(ConnectionStrings.sqlConnectionStringBuilder.ConnectionString);
