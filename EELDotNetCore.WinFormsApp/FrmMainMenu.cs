@@ -22,5 +22,11 @@ namespace EELDotNetCore.WinFormsApp
             //frm.show();
             frm.ShowDialog();
         }
+
+        private void blogsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmBlogList frm = new FrmBlogList();
+            frm.ShowDialog();
+        }
     }
 }

@@ -31,6 +31,7 @@
             menuStrip1 = new MenuStrip();
             blogToolStripMenuItem = new ToolStripMenuItem();
             newBlogToolStripMenuItem = new ToolStripMenuItem();
+            blogsToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -40,15 +41,15 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { blogToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1530, 49);
+            menuStrip1.Size = new Size(1530, 52);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // blogToolStripMenuItem
             // 
-            blogToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newBlogToolStripMenuItem });
+            blogToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newBlogToolStripMenuItem, blogsToolStripMenuItem });
             blogToolStripMenuItem.Name = "blogToolStripMenuItem";
-            blogToolStripMenuItem.Size = new Size(102, 45);
+            blogToolStripMenuItem.Size = new Size(102, 48);
             blogToolStripMenuItem.Text = "Blog";
             // 
             // newBlogToolStripMenuItem
@@ -57,6 +58,13 @@
             newBlogToolStripMenuItem.Size = new Size(448, 54);
             newBlogToolStripMenuItem.Text = "New Blog";
             newBlogToolStripMenuItem.Click += newBlogToolStripMenuItem_Click;
+            // 
+            // blogsToolStripMenuItem
+            // 
+            blogsToolStripMenuItem.Name = "blogsToolStripMenuItem";
+            blogsToolStripMenuItem.Size = new Size(448, 54);
+            blogsToolStripMenuItem.Text = "Blogs";
+            blogsToolStripMenuItem.Click += blogsToolStripMenuItem_Click;
             // 
             // FrmMainMenu
             // 
@@ -79,5 +87,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem blogToolStripMenuItem;
         private ToolStripMenuItem newBlogToolStripMenuItem;
+        private ToolStripMenuItem blogsToolStripMenuItem;
     }
 }
