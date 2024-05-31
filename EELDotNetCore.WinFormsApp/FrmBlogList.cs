@@ -18,6 +18,7 @@ namespace EELDotNetCore.WinFormsApp
         public FrmBlogList()
         {
             InitializeComponent();
+            dgvData.AutoGenerateColumns = false;
             _dapperService = new DapperService(ConnectionStrings.sqlConnectionStringBuilder.ConnectionString);
         }
 

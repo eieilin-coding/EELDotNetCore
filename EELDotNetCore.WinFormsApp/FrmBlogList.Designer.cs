@@ -30,6 +30,8 @@
         {
             dgvData = new DataGridView();
             colId = new DataGridViewTextBoxColumn();
+            colEdit = new DataGridViewTextBoxColumn();
+            colDelete = new DataGridViewTextBoxColumn();
             colTitle = new DataGridViewTextBoxColumn();
             colAuthor = new DataGridViewTextBoxColumn();
             colContent = new DataGridViewTextBoxColumn();
@@ -42,7 +44,7 @@
             dgvData.AllowUserToDeleteRows = false;
             dgvData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { colId, colTitle, colAuthor, colContent });
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { colId, colEdit, colDelete, colTitle, colAuthor, colContent });
             dgvData.Dock = DockStyle.Fill;
             dgvData.Location = new Point(0, 0);
             dgvData.Name = "dgvData";
@@ -55,14 +57,30 @@
             // 
             // colId
             // 
+            colId.DataPropertyName = "BlogID";
             colId.HeaderText = "ID";
             colId.MinimumWidth = 12;
             colId.Name = "colId";
             colId.ReadOnly = true;
             colId.Visible = false;
             // 
+            // colEdit
+            // 
+            colEdit.HeaderText = "Edit";
+            colEdit.MinimumWidth = 12;
+            colEdit.Name = "colEdit";
+            colEdit.ReadOnly = true;
+            // 
+            // colDelete
+            // 
+            colDelete.HeaderText = "Delete";
+            colDelete.MinimumWidth = 12;
+            colDelete.Name = "colDelete";
+            colDelete.ReadOnly = true;
+            // 
             // colTitle
             // 
+            colTitle.DataPropertyName = "BlogTitle";
             colTitle.HeaderText = "Title";
             colTitle.MinimumWidth = 12;
             colTitle.Name = "colTitle";
@@ -70,6 +88,7 @@
             // 
             // colAuthor
             // 
+            colAuthor.DataPropertyName = "BlogAuthor";
             colAuthor.HeaderText = "Author";
             colAuthor.MinimumWidth = 12;
             colAuthor.Name = "colAuthor";
@@ -77,6 +96,7 @@
             // 
             // colContent
             // 
+            colContent.DataPropertyName = "BlogContent";
             colContent.HeaderText = "Content";
             colContent.MinimumWidth = 12;
             colContent.Name = "colContent";
@@ -100,6 +120,8 @@
 
         private DataGridView dgvData;
         private DataGridViewTextBoxColumn colId;
+        private DataGridViewTextBoxColumn colEdit;
+        private DataGridViewTextBoxColumn colDelete;
         private DataGridViewTextBoxColumn colTitle;
         private DataGridViewTextBoxColumn colAuthor;
         private DataGridViewTextBoxColumn colContent;

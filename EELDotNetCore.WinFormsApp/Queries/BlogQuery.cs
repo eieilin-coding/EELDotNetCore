@@ -17,5 +17,10 @@ namespace EELDotNetCore.WinFormsApp.Queries
 		   ,@BlogAuthor
 		   ,@BlogContent
 		   )";
+        public static string BlogList { get; } = @"SELECT [BlogID]
+      ,[BlogTitle]
+      ,[BlogAuthor]
+      ,[BlogContent]
+  FROM [DotNetTrainingBatch4].[dbo].[Tbl_Blog]";
     }
 }
