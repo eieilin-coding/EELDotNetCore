@@ -15,6 +15,8 @@ namespace EELDotNetCore.WinFormsApp
     public partial class FrmBlogList : Form
     {
         private readonly DapperService _dapperService;
+        //private const int _edit = 1;
+        //private const int _delete = 2;
         public FrmBlogList()
         {
             InitializeComponent();
@@ -28,9 +30,39 @@ namespace EELDotNetCore.WinFormsApp
             dgvData.DataSource = lst;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //int columnIndex = e.ColumnIndex;
+            //int rowIndex = e.RowIndex;
 
+            if(e.ColumnIndex == (int)EnumFormControlType.Edit)
+            {
+
+            }
+            else if(e.ColumnIndex == (int)EnumFormControlType.Delete)
+            {
+
+            }
+            EnumFormControlType enumFormControlType = EnumFormControlType.None;
+            //switch (enumFormControlType)
+            //{
+            //    case EnumFormControlType.None:
+            //        break;
+            //    case EnumFormControlType.Delete:
+            //        break;
+            //    case EnumFormControlType.Edit:
+            //        break;
+            //    case enumFormControlType.abcde:
+            //        break;
+            //}
+            //string formControlType = "None";
+            //switch(formControlType)
+            //{
+            //    case "abcde":
+            //        break;
+            //    case "efgh":
+            //        break;
+            //}
         }
     }
 }
