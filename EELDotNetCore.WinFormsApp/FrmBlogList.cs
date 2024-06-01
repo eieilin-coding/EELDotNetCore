@@ -37,17 +37,20 @@ namespace EELDotNetCore.WinFormsApp
         {
             //int columnIndex = e.ColumnIndex;
             //int rowIndex = e.RowIndex;
+            if (e.RowIndex == -1) return;
+            var blogId = Convert.ToInt32(dgvData.Rows[e.RowIndex].Cells["colId"].Value);
 
-            if(e.ColumnIndex == (int)EnumFormControlType.Edit)
+            if (e.ColumnIndex == (int)EnumFormControlType.Edit)
             {
-                
+                FrmBlog frm = new FrmBlog(blogId);
+                frm.ShowDialog();
+
+                BlogList();
             }
             else if(e.ColumnIndex == (int)EnumFormControlType.Delete)
             {
                 var dialogResult = MessageBox.Show("Are you sure want to delete?", "", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                 if (dialogResult != DialogResult.Yes) return; 
-                
-                var blogId = Convert.ToInt32(dgvData.Rows[e.RowIndex].Cells["colId"].Value);
                 DeleteBlog(blogId);
             }
             //EnumFormControlType enumFormControlType = EnumFormControlType.None;

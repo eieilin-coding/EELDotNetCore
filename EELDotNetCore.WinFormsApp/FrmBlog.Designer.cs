@@ -36,6 +36,7 @@
             txtTitle = new TextBox();
             txtAuthor = new TextBox();
             txtContent = new TextBox();
+            btnUpdate = new Button();
             SuspendLayout();
             // 
             // btnCancel
@@ -46,7 +47,7 @@
             btnCancel.ForeColor = SystemColors.ButtonHighlight;
             btnCancel.Location = new Point(66, 590);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(268, 113);
+            btnCancel.Size = new Size(249, 85);
             btnCancel.TabIndex = 1;
             btnCancel.Text = "&Cancel";
             btnCancel.UseVisualStyleBackColor = false;
@@ -58,9 +59,9 @@
             btnSave.FlatAppearance.BorderSize = 0;
             btnSave.FlatStyle = FlatStyle.Flat;
             btnSave.ForeColor = SystemColors.ButtonHighlight;
-            btnSave.Location = new Point(472, 590);
+            btnSave.Location = new Point(374, 590);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(259, 113);
+            btnSave.Size = new Size(244, 85);
             btnSave.TabIndex = 2;
             btnSave.Text = "&Save";
             btnSave.UseVisualStyleBackColor = false;
@@ -97,14 +98,14 @@
             // 
             txtTitle.Location = new Point(66, 90);
             txtTitle.Name = "txtTitle";
-            txtTitle.Size = new Size(665, 47);
+            txtTitle.Size = new Size(867, 47);
             txtTitle.TabIndex = 7;
             // 
             // txtAuthor
             // 
             txtAuthor.Location = new Point(66, 223);
             txtAuthor.Name = "txtAuthor";
-            txtAuthor.Size = new Size(665, 47);
+            txtAuthor.Size = new Size(867, 47);
             txtAuthor.TabIndex = 8;
             // 
             // txtContent
@@ -112,14 +113,29 @@
             txtContent.Location = new Point(66, 389);
             txtContent.Multiline = true;
             txtContent.Name = "txtContent";
-            txtContent.Size = new Size(665, 154);
+            txtContent.Size = new Size(867, 154);
             txtContent.TabIndex = 9;
             // 
-            // Form1
+            // btnUpdate
+            // 
+            btnUpdate.BackColor = Color.FromArgb(128, 128, 255);
+            btnUpdate.FlatAppearance.BorderSize = 0;
+            btnUpdate.FlatStyle = FlatStyle.Flat;
+            btnUpdate.ForeColor = SystemColors.ButtonHighlight;
+            btnUpdate.Location = new Point(374, 590);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(244, 85);
+            btnUpdate.TabIndex = 10;
+            btnUpdate.Text = "&Update";
+            btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
+            // 
+            // FrmBlog
             // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1707, 906);
+            Controls.Add(btnUpdate);
             Controls.Add(txtContent);
             Controls.Add(txtAuthor);
             Controls.Add(txtTitle);
@@ -128,7 +144,7 @@
             Controls.Add(label1);
             Controls.Add(btnSave);
             Controls.Add(btnCancel);
-            Name = "Form1";
+            Name = "FrmBlog";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmBlog";
             ResumeLayout(false);
@@ -145,5 +161,6 @@
         private TextBox txtTitle;
         private TextBox txtAuthor;
         private TextBox txtContent;
+        private Button btnUpdate;
     }
 }
