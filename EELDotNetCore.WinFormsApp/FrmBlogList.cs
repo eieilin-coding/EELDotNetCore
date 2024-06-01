@@ -26,10 +26,13 @@ namespace EELDotNetCore.WinFormsApp
 
         private void FrmBlogList_Load(object sender, EventArgs e)
         {
+            BlogList();
+        }
+        private void BlogList()
+        {
             List<BlogModel> lst = _dapperService.Query<BlogModel>("select * from tbl_blog");
             dgvData.DataSource = lst;
         }
-
         private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //int columnIndex = e.ColumnIndex;
@@ -37,13 +40,17 @@ namespace EELDotNetCore.WinFormsApp
 
             if(e.ColumnIndex == (int)EnumFormControlType.Edit)
             {
-
+                
             }
             else if(e.ColumnIndex == (int)EnumFormControlType.Delete)
             {
-
+                var dialogResult = MessageBox.Show("Are you sure want to delete?", "", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                if (dialogResult != DialogResult.Yes) return; 
+                
+                var blogId = Convert.ToInt32(dgvData.Rows[e.RowIndex].Cells["colId"].Value);
+                DeleteBlog(blogId);
             }
-            EnumFormControlType enumFormControlType = EnumFormControlType.None;
+            //EnumFormControlType enumFormControlType = EnumFormControlType.None;
             //switch (enumFormControlType)
             //{
             //    case EnumFormControlType.None:
@@ -63,6 +70,14 @@ namespace EELDotNetCore.WinFormsApp
             //    case "efgh":
             //        break;
             //}
+        }
+        private void DeleteBlog(int id)
+        {
+            string query = @"Delete From [dbo].[Tbl_blog] WHERE BlogId = @BlogId";
+            int result = _dapperService.Execute(query,new {BlogId = id});
+            string message = result > 0 ? "Deleting Successful." : "Deleting Failed.";
+            MessageBox.Show(message);
+            BlogList();
         }
     }
 }
