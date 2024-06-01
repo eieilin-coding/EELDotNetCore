@@ -59,7 +59,7 @@
             btnSave.FlatAppearance.BorderSize = 0;
             btnSave.FlatStyle = FlatStyle.Flat;
             btnSave.ForeColor = SystemColors.ButtonHighlight;
-            btnSave.Location = new Point(374, 590);
+            btnSave.Location = new Point(391, 590);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(244, 85);
             btnSave.TabIndex = 2;
@@ -122,7 +122,7 @@
             btnUpdate.FlatAppearance.BorderSize = 0;
             btnUpdate.FlatStyle = FlatStyle.Flat;
             btnUpdate.ForeColor = SystemColors.ButtonHighlight;
-            btnUpdate.Location = new Point(374, 590);
+            btnUpdate.Location = new Point(689, 590);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(244, 85);
             btnUpdate.TabIndex = 10;

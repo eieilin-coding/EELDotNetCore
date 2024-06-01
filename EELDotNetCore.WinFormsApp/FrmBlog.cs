@@ -49,6 +49,7 @@ namespace EELDotNetCore.WinFormsApp
 
                 int result = _dapperService.Execute(BlogQuery.BlogCreate, blog);
                 string message = result > 0 ? "Saving Successful." : "Saving Failed.";
+
                 var messageBoxIcon = result > 0 ? MessageBoxIcon.Information : MessageBoxIcon.Error;
                 MessageBox.Show(message, "Blog", MessageBoxButtons.OK, messageBoxIcon);
                 if (result > 0)
