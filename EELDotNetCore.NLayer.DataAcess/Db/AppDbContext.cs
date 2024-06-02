@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using EELDotNetCore.NLayer.DataAcess.Models;
 
 namespace EELDotNetCore.NLayer.DataAcess.Db
 {

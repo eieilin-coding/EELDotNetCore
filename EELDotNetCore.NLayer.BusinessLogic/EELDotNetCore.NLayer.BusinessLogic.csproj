@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EELDotNetCore.NLayer.DataAcess\EELDotNetCore.NLayer.DataAcess.csproj" />
+  </ItemGroup>
+
 </Project>

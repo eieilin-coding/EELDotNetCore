@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EELDotNetCore.NLayer.BusinessLogic\EELDotNetCore.NLayer.BusinessLogic.csproj" />
+    <ProjectReference Include="..\EELDotNetCore.RestApiWithNLayer\EELDotNetCore.RestApiWithNLayer.csproj" />
+  </ItemGroup>
+
 </Project>
