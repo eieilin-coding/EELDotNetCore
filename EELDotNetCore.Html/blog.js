@@ -1,7 +1,9 @@
 const tblBlog = "blogs";
 
+//getBlogTable();
+//readBlog();
 //createBlog();
-updateBlog("8306857c-264b-4bc3-9603-415ec465fa5d");
+updateBlog("8306857c-264b-4bc3-9603-415ec465fa5d", 'abcdd', 'efgh','ijkl');
 
 function readBlog(){
     localStorage.getItem(); 
@@ -31,8 +33,9 @@ function createBlog(){
     const jsonBlog = JSON.stringify(lst);
     localStorage.setItem(tblBlog, jsonBlog);
     // localStorage.setItem("blogs", requestModel);
+}
 
-    function updateBlog(id){
+    function updateBlog(id, title , author, content){
         const blogs = localStorage.getItem(tblBlog);
         console.log(blogs);
 
@@ -49,11 +52,17 @@ function createBlog(){
         console.log("no data found.");
         return;
      }
-    const item = item[0];
+    const item = items[0];
+    item.title = title;
+    item.author = author;
+    item.content = content;
 
+    const index = lst.findIndex(x=> x.id === id);
+    lst[index] = item;
+
+    const jsonBlog = JSON.stringify(lst);
+    localStorage.setItem(tblBlog, jsonBlog);
     }
-
-}
 
 function uuidv4() {
     return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
