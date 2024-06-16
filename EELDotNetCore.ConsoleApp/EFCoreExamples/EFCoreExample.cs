@@ -20,14 +20,14 @@ namespace EELDotNetCore.ConsoleApp.EFCoreExamples
 
         public void Run()
         {
-            //Read();
+            Read();
             //Edit(1);
             //Edit(17);
-            //Create("title2", "author2", "content2");
+            //Create("title Dependency", "author Dependency", "content Injection");
             //Update(18, "title", "author", "content");
-            Delete(7);
-            Delete(8);
-            Delete(9);
+            //Delete(7);
+            //Delete(8);
+            //Delete(9);
         }
 
         private void Read()

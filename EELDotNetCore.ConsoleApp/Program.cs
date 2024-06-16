@@ -74,6 +74,9 @@ var serviceProvider = new ServiceCollection()
 //var adoDotNetExample = serviceProvider.GetRequiredService<AdoDotNetExample>();
 //adoDotNetExample.Read();
 
-var dapperExample = serviceProvider.GetRequiredService<DapperExample>();
-dapperExample.Run();
+//var dapperExample = serviceProvider.GetRequiredService<DapperExample>();
+//dapperExample.Run();
+
+var efCoreExample = serviceProvider.GetRequiredService<EFCoreExample>();
+efCoreExample.Run();
 Console.ReadLine();
