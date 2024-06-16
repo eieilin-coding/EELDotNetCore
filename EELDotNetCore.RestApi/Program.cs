@@ -1,4 +1,6 @@
+using EELDotNetCore.RestApi.Db;
 using EELDotNetCore.Shared;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 string connectionString = builder.Configuration.GetConnectionString("DbConnection")!;
+
+builder.Services.AddDbContext<AppDbContext>(opt =>
+{
+    opt.UseSqlServer(connectionString);
+}, 
+ServiceLifetime.Transient, 
+ServiceLifetime.Transient);
 
 //builder.Services.AddScoped<AdoDotNetService>(n => new AdoDotNetService("connectionString"));
 //builder.Services.AddScoped<DapperService>(n => new DapperService("connectionString"));
