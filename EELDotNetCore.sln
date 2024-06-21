@@ -31,13 +31,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EELDotNetCore.PizzaApi", "E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EELDotNetCore.ConsoleAppRefitExamples", "EELDotNetCore.ConsoleAppRefitExamples\EELDotNetCore.ConsoleAppRefitExamples.csproj", "{E9EA47C2-BCA5-4777-82B5-386D7BE74F3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EELDotNetCore.WinFormsAppSqlInjection", "EELDotNetCore.WinFormsAppSqlInjection\EELDotNetCore.WinFormsAppSqlInjection.csproj", "{B4BF882F-3317-4A88-A56C-52FA8A4A9579}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EELDotNetCore.WinFormsAppSqlInjection", "EELDotNetCore.WinFormsAppSqlInjection\EELDotNetCore.WinFormsAppSqlInjection.csproj", "{B4BF882F-3317-4A88-A56C-52FA8A4A9579}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EELDotNetCore.NLayer.UI", "EELDotNetCore.NLayer.UI\EELDotNetCore.NLayer.UI.csproj", "{3A322ED3-B504-43A2-A6FF-195EB502B294}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EELDotNetCore.NLayer.UI", "EELDotNetCore.NLayer.UI\EELDotNetCore.NLayer.UI.csproj", "{3A322ED3-B504-43A2-A6FF-195EB502B294}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EELDotNetCore.NLayer.BusinessLogic", "EELDotNetCore.NLayer.BusinessLogic\EELDotNetCore.NLayer.BusinessLogic.csproj", "{911F9768-B05B-4312-947D-99AF18777E64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EELDotNetCore.NLayer.BusinessLogic", "EELDotNetCore.NLayer.BusinessLogic\EELDotNetCore.NLayer.BusinessLogic.csproj", "{911F9768-B05B-4312-947D-99AF18777E64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EELDotNetCore.NLayer.DataAcess", "EELDotNetCore.NLayer.DataAcess\EELDotNetCore.NLayer.DataAcess.csproj", "{909ED814-49E6-481A-B1F6-08F36CB1212E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EELDotNetCore.NLayer.DataAcess", "EELDotNetCore.NLayer.DataAcess\EELDotNetCore.NLayer.DataAcess.csproj", "{909ED814-49E6-481A-B1F6-08F36CB1212E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EELDotNetCore.MinimalApi", "EELDotNetCore.MinimalApi\EELDotNetCore.MinimalApi.csproj", "{5C76C9DD-9E5B-4961-B314-0BBF7EA21F16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +103,10 @@ Global
 		{909ED814-49E6-481A-B1F6-08F36CB1212E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{909ED814-49E6-481A-B1F6-08F36CB1212E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{909ED814-49E6-481A-B1F6-08F36CB1212E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C76C9DD-9E5B-4961-B314-0BBF7EA21F16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C76C9DD-9E5B-4961-B314-0BBF7EA21F16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C76C9DD-9E5B-4961-B314-0BBF7EA21F16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C76C9DD-9E5B-4961-B314-0BBF7EA21F16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
