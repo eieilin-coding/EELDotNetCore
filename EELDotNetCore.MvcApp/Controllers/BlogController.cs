@@ -1,4 +1,5 @@
 ﻿using EELDotNetCore.MvcApp.Db;
+using EELDotNetCore.MvcApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,5 +19,23 @@ namespace EELDotNetCore.MvcApp.Controllers
             var lst = await _db.Blogs.ToListAsync();
             return View(lst);
         }
+
+        [ActionName("Create")]
+        public IActionResult BlogCreate()
+        {
+            return View("BlogCreate");
+        }
+
+        [HttpPost]
+        [ActionName("Save")]
+        public async Task<IActionResult> BlogCreate(BlogModel blog)
+        {
+            await _db.Blogs.AddAsync(blog);
+            var result = await _db.SaveChangesAsync();
+            //return View("BlogCreate");
+            return Redirect("/Blog");
+        }
+
+
     }
 }
