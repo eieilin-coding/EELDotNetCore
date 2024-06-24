@@ -1,12 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EELDotNetCore.MvcApp.Db;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EELDotNetCore.MvcApp.Controllers
 {
     public class BlogController : Controller
     {
-        public IActionResult Index()
+        private readonly AppDbContext _db;
+
+        public BlogController(AppDbContext db)
         {
-            return View();
+            _db = db;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var lst = await _db.Blogs.ToListAsync();
+            return View(lst);
         }
     }
 }

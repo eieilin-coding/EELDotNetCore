@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EELDotNetCore.RestApi.Models;
+namespace EELDotNetCore.MvcApp.Models;
 
 [Table("Tbl_Blog")]
 

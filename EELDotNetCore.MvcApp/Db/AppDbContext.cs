@@ -1,4 +1,4 @@
-﻿using EELDotNetCore.RestApi.Models;
+﻿using EELDotNetCore.MvcApp.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
