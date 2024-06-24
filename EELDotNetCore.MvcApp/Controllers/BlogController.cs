@@ -85,7 +85,7 @@ namespace EELDotNetCore.MvcApp.Controllers
             _db.Blogs.Remove(item);
             await _db.SaveChangesAsync();
 
-            return View("Blog");
+            return Redirect("/Blog");
         }
 
     }
