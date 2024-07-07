@@ -14,13 +14,13 @@ namespace EELDotNetCore.MvcApp2.Controllers
             _db = db;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> BlogIndex()
         {
             var lst = await _db.Blogs
                 .AsNoTracking()
                 .OrderByDescending(x => x.BlogID)
                 .ToListAsync();
-            return View(lst);
+            return View("BlogIndex",lst);
         }
 
         [ActionName("Create")]
