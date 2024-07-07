@@ -21,3 +21,9 @@ public class BlogModel
 }
 
 //public record BlogEntity(int BlogID, string BlogTitle, string BlogAuthor, string BlogContent);
+
+public class MessageModel
+{
+    public bool IsSuccess { get; set; }
+    public string Message { get; set; }
+}

@@ -35,8 +35,13 @@ namespace EELDotNetCore.MvcApp2.Controllers
         {
             await _db.Blogs.AddAsync(blog);
             var result = await _db.SaveChangesAsync();
+            var message = new MessageModel()
+            {
+                IsSuccess = result > 0,
+                Message = result > 0 ? "Saving Successful." : "Saving Failed."
+            };
             //return View("BlogCreate");
-            return Redirect("/Blog");
+            return Json(message);
         }
 
         [HttpGet]
@@ -68,25 +73,37 @@ namespace EELDotNetCore.MvcApp2.Controllers
 
             _db.Entry(item).State = EntityState.Modified;
 
-            await _db.SaveChangesAsync();
-            return Redirect("/Blog");
+            var result = await _db.SaveChangesAsync();
+            var message = new MessageModel()
+            {
+                IsSuccess = result > 0,
+                Message = result > 0 ? "Updating Successful." : "Updating Failed."
+            };
+            
+            return Json(message);
         }
 
+        
         [HttpGet]
         [ActionName("Delete")]
-        public async Task<IActionResult> BlogDelete(int id)
+        public async Task<IActionResult> BlogDelete(BlogModel blog)
         {
-            var item = await _db.Blogs.FirstOrDefaultAsync(x => x.BlogID == id);
+            var item = await _db.Blogs.FirstOrDefaultAsync(x => x.BlogID == blog.BlogID);
             if (item is null)
             {
                 return Redirect("/Blog");
             }
 
             _db.Blogs.Remove(item);
-            await _db.SaveChangesAsync();
+            var result = await _db.SaveChangesAsync();
+            var message = new MessageModel()
+            {
+                IsSuccess = result > 0,
+                Message = result > 0 ? "Deleting Successful." : "Deleting Failed."
+            };
 
-            return Redirect("/Blog");
+            return Json(message);
+
         }
-
     }
 }
