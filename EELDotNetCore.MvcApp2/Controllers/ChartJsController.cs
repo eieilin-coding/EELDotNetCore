@@ -9,7 +9,7 @@ namespace EELDotNetCore.MvcApp2.Controllers
             return View();
         }
 
-        public IActionResult LineChart()
+        public IActionResult InterpolationLineChart()
         {
             return View();
         }
