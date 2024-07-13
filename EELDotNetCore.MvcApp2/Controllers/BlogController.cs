@@ -86,7 +86,7 @@ namespace EELDotNetCore.MvcApp2.Controllers
         
         [HttpGet]
         [ActionName("Delete")]
-        public async Task<IActionResult> BlogDelete(BlogModel blog)
+        public async Task<IActionResult> BlogDelete(int id, BlogModel blog)
         {
             var item = await _db.Blogs.FirstOrDefaultAsync(x => x.BlogID == blog.BlogID);
             if (item is null)

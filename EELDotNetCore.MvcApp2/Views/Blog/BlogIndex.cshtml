@@ -29,7 +29,7 @@
                     <a class="btn btn-warning" href="/Blog/Edit/@item.BlogID">
                         Edit
                     </a>
-                    <button type="button" class="btn btn-danger btn-delete" data-blog-ID="@item.BlogID">
+                    <button type="button" id="btnDelete" class="btn btn-danger" data-blog-id="@item.BlogID">
                         Delete
                     </button>
                 </td>
@@ -43,11 +43,11 @@
 </table>
 @section scripts {
     <script>
-        $('.btn-delete').click(function () {
+        $('#btnDelete').click(function () {
             const isConfirm = confirm("Are you sure want to delete?");
             if (!isConfirm) return;
 
-            const id = $(this).data('blog-ID');
+            const id = $(this).data('blog-id');
             const _reqModel = {
                 BlogID: id
             };
