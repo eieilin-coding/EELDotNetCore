@@ -1,8 +1,10 @@
 using Serilog;
 
+string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs/EELDotNetCore.MvcChartApp.log");
+
 Log.Logger = new LoggerConfiguration()
 	.WriteTo.Console()
-	.WriteTo.File("logs/EELDotNetCore.ConsoleAppLogging.log", rollingInterval: RollingInterval.Hour)
+	.WriteTo.File(filePath, rollingInterval: RollingInterval.Hour)
 	.CreateLogger();
 
 try
