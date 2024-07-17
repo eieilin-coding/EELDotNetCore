@@ -47,7 +47,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EELDotNetCore.MvcChartApp",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EELDotNetCore.MvcApp2", "EELDotNetCore.MvcApp2\EELDotNetCore.MvcApp2.csproj", "{D20030BB-3B49-4F58-98F0-093231273E47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EELDotNetCore.ConsoleAppLogging", "EELDotNetCore.ConsoleAppLogging\EELDotNetCore.ConsoleAppLogging.csproj", "{0FDFE7D2-B27A-41AF-BAEA-AFE6EA7905DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EELDotNetCore.ConsoleAppLogging", "EELDotNetCore.ConsoleAppLogging\EELDotNetCore.ConsoleAppLogging.csproj", "{0FDFE7D2-B27A-41AF-BAEA-AFE6EA7905DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EELDotNetCore.RealTimeChartApp", "EELDotNetCore.RealTimeChartApp\EELDotNetCore.RealTimeChartApp.csproj", "{C9A1D694-4FAD-4933-911E-2A0D6AEC980D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -128,6 +130,10 @@ Global
 		{0FDFE7D2-B27A-41AF-BAEA-AFE6EA7905DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FDFE7D2-B27A-41AF-BAEA-AFE6EA7905DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FDFE7D2-B27A-41AF-BAEA-AFE6EA7905DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9A1D694-4FAD-4933-911E-2A0D6AEC980D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9A1D694-4FAD-4933-911E-2A0D6AEC980D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9A1D694-4FAD-4933-911E-2A0D6AEC980D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9A1D694-4FAD-4933-911E-2A0D6AEC980D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

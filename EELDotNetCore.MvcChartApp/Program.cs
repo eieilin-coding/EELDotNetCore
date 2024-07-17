@@ -1,11 +1,19 @@
 using Serilog;
+using Serilog.Sinks.MSSqlServer;
 
 string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs/EELDotNetCore.MvcChartApp.log");
 
 Log.Logger = new LoggerConfiguration()
 	.WriteTo.Console()
 	.WriteTo.File(filePath, rollingInterval: RollingInterval.Hour)
-	.CreateLogger();
+    .WriteTo
+    .MSSqlServer(
+        connectionString: "Server=Eieilin;Database=DotNetTrainingBatch4;User ID=sa;Password=sasa@123;TrustServerCertificate=true;",
+        sinkOptions: new MSSqlServerSinkOptions 
+		{ TableName = "Tbl_LogEvents" ,
+		AutoCreateSqlDatabase = true,
+		})
+    .CreateLogger();
 
 try
 {
