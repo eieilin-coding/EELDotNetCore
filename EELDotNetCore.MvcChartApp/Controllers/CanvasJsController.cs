@@ -21,5 +21,9 @@ namespace EELDotNetCore.MvcChartApp.Controllers
 		{
 			return View();
 		}
+		public IActionResult CandleStickChart()
+		{
+			return View();
+		}
 	}
 }
