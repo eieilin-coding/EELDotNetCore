@@ -13,5 +13,9 @@ namespace EELDotNetCore.MvcChartApp.Controllers
 		{
 			return View();
 		}
+		public IActionResult StackedAndGroupedChart()
+		{
+			return View();
+		}
 	}
 }
