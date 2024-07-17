@@ -16,5 +16,10 @@ namespace EELDotNetCore.MvcChartApp.Controllers
 			_logger.LogInformation("Line Chart....");
 			return View();
 		}
+
+		public IActionResult SplineChart()
+		{
+			return View();
+		}
 	}
 }
