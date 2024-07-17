@@ -8,5 +8,10 @@ namespace EELDotNetCore.MvcChartApp.Controllers
 		{
 			return View();
 		}
+
+		public IActionResult AreaHighChart()
+		{
+			return View();
+		}
 	}
 }
